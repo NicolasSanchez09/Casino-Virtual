@@ -19,7 +19,7 @@ Para el segundo, cómo no podría faltar, un clásico. Se incluyó 'BlackJack'. 
 
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/7a552b67-7bc7-4bd1-ac61-746a30a83270)
 
-En la tercera selecció, se tomó la alternativa sencilla. El 'Tragamonedas'. Como todo ser humano sabrá, hay que girar las ruletas, esperando con el mayor de los deseos que todos los símbolos coincidan para ovtener un gran premio.
+En la tercera selección, se tomó la alternativa sencilla. El 'Tragamonedas'. Como todo ser humano sabrá, hay que girar las ruletas, esperando con el mayor de los deseos que todos los símbolos coincidan para ovtener un gran premio.
 
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/3bf860c2-b8e9-4c63-aa3e-d7bbb59c6324)
 
