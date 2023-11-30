@@ -1,4 +1,4 @@
-# Casino - Virtual
+# Casino Virtual
 
 ## ¿Cuál es el propósito de nuestro proyecto?
 
