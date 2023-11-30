@@ -7,7 +7,9 @@ Esto, además de permitirle a las personas tener una experiencia divertida y rel
 
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/6fab8ecf-299d-453a-89c3-74a1793ed000)
 
-Antes de iniciar, se definieron todos los juegos a desarrollar. Tras unas cuantas conversaciones sobre cuáles serían más desafiantes y divertidos, se seleccionaron 5.
+Antes de iniciar, se definieron todos los juegos a desarrollar.
+
+Tras unas cuantas conversaciones sobre cuáles serían más desafiantes y divertidos, se seleccionaron 5.
 
 El primero de todos, una incorporación novedosa, pero muy intrigante. Se llama 'Agalludo'. Para los que no conocen de su existencia, este juego consiste en lanzar un dado hasta que se crea que va a salir '1'. En ese momento, el jugador decide guardar su puntaje, para ir acercándose a una meta. De lo contrario, si continua hasta que se tope con el número temido por todos, el jugador perderá todo lo acumulado en esa ronda.
 
