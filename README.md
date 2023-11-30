@@ -1,5 +1,9 @@
 # Casino Virtual
 
+° Nicolás Antonio Sánchez Bautista
+° Manuel Arturo Fajardo Contreras
+° Juan David García Barreto
+
 ## ¿Cuál es el propósito de nuestro proyecto?
 
 Proporcionar un entorno virtual dónde las personas puedan disfrutar de la emoción de un casino desde la comodidad de sus hogares.
@@ -589,3 +593,7 @@ Es fundamental ejecutar el programa en orden, para que la interfaz principal fun
 
     except ValueError:
         print("Entrada no válida. Por favor, ingresa un número válido.")
+
+### GRACIAS
+
+Hasta aquí llega el proyecto. Se espera que de cara a futuro se pueda aplicar sobre algún entorno virtual colectivo, así como implementarle nuevos juegos.
