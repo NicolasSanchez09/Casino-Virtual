@@ -15,7 +15,7 @@ El primero de todos, una incorporación novedosa, pero muy intrigante. Se llama 
 
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/7a419d6f-aae5-4abf-82c0-1c304edbfde1)
 
-Para el segundo, cómo no podría faltar, un clásico. Se incluyó 'BlackJack'. El juego que todos conocen donde el propósito es acercarse al máximo al número '21' sin superarlo, con al menos dos cartas iniciales.
+Para el segundo, cómo no podría faltar, un clásico. Se incluyó 'BlackJack'. El juego que todos conocen donde el propósito es acercarse lo máximo posible al número '21' sin superarlo, con al menos dos cartas iniciales.
 
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/7a552b67-7bc7-4bd1-ac61-746a30a83270)
 
