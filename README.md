@@ -52,8 +52,7 @@ A continuación se adjuntará unas imagenes con el mapa diseñado inciailmente;
 
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/a4f35922-5e89-4e2a-9a9e-1f9e8e01083b)
 
-
-
+Con todo nuevamente definido, fue hora de pasar a lo divertido... ¡¡La programación!!
 
 
 
