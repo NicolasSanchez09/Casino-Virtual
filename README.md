@@ -1,6 +1,6 @@
-# Pocillo-Termosensible
+# Casino - Virtual
 
-## ¿Cuál es el problema a resolver?
+## ¿Cuál es el propósito de nuestro proyecto?
 
 Muchas veces al usar recipientes como pocillos u ollas desconocemos sus temperaturas. Esto puede ser peligroso si el contenido está muy caliente, ya que al consumirlo o manipularlo se podrían generar quemaduras. Si bien es cierto que a la gran mayoría nos ha ocurrido al menos una vez y no es nada de gravedad, además de ser incómodo, una exposición prologada a este tipo de heridas puede llegar a tener efectos negativos en la salud del individuo. De igual forma, si el contenedor es de un tamaño más grande, o  guarda algún material con una temperatura excesiva, se aumentaría la posibilidad de un accidente verdaderamente trágico. 
 
