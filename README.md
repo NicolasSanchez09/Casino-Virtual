@@ -54,9 +54,538 @@ A continuación se adjuntará unas imagenes con el mapa diseñado inciailmente;
 
 Con todo nuevamente definido, fue hora de pasar a lo divertido... ¡¡La programación!!
 
+## Resultado Final
 
+En esta sección, se expondrá el código que se tiene que ejecutar para disfrutar del programa. Pero antes, es necesario comprender cómo hacer que funcione correctamente.
 
+El primer paso es abrir el cuaderno compartido de google collaboratory. A continuación, se ejecutarán todas las secciones del programa una a una, hasta llegar a la 'Interfaz Principal'.
 
+En ella, al correrla, el usuario podrá acceder a un menú con todas las opciones y detalles específicos.
 
+Es fundamental ejecutar el programa en orden, para que la interfaz principal funcione correctamente.
 
+## Importación e instalación de librerías
 
+    %%capture
+    import random
+    from IPython.display import clear_output
+    import time
+
+## Agalludo
+
+    def tirar_dado():
+    return random.randint(1, 6)
+
+    def jugar_agalludo():
+
+        bucle_externo = True
+        while bucle_externo:
+            print("Bienvenido al juego 'Agalludo'")
+
+            # Seleccionar la meta
+            metas = [20, 50, 100, 250, 500, 1000]
+            meta = int(input("Selecciona la meta (20, 50, 100, 250, 500, 1000): "))
+            while meta not in metas:
+                print("Meta no válida. Intenta de nuevo.")
+                meta = int(input("Selecciona la meta (20, 50, 100, 250, 500, 1000): "))
+
+            # Determinar quién empieza
+            turno_inicial = random.choice(["Jugador", "Computadora"])
+            print("(A): Jugador")
+            print("(B): Computadora")
+            print(f"Sorteo Inicial: {turno_inicial}")
+
+            # Inicializar puntajes
+            puntaje_jugador = 0
+            puntaje_pc = 0
+
+            while puntaje_jugador < meta and puntaje_pc < meta:
+                if turno_inicial == "Jugador":
+                    print("\nTurno del Jugador:")
+                    puntaje_turno_jugador = 0
+
+                    while True:
+                        dado = tirar_dado()
+                        print(f"Dado: {dado}")
+
+                        if dado == 1:
+                            print("¡Oh no! Has sacado un '1'. Pierdes el puntaje de este turno.")
+                            puntaje_turno_jugador = 0
+                            break
+                        else:
+                            puntaje_turno_jugador += dado
+                            print(f"Puntaje de turno: {puntaje_turno_jugador}")
+
+                        decision = input("Marca (1) para seguir o (2) para guardar: ")
+                        if decision == "2":
+                            break
+
+                    puntaje_jugador += puntaje_turno_jugador
+                    print(f"\nPuntaje acumulado del Jugador: {puntaje_jugador}")
+
+                else:
+                    print("\nTurno de la Computadora:")
+                    puntaje_turno_pc = 0
+
+                    while puntaje_turno_pc < 15:  # Decisión aleatoria de la computadora
+                        dado = tirar_dado()
+                        print(f"Dado: {dado}")
+
+                        if dado == 1:
+                            print("La Computadora ha sacado un '1'. Pierde el puntaje de este turno.")
+                            puntaje_turno_pc = 0
+                            break
+                        else:
+                            puntaje_turno_pc += dado
+                            print(f"Puntaje de turno: {puntaje_turno_pc}")
+
+                    puntaje_pc += puntaje_turno_pc
+                    print(f"\nPuntaje acumulado de la Computadora: {puntaje_pc}")
+
+                # Verificar si se ha alcanzado o superado la meta
+                if puntaje_jugador >= meta or puntaje_pc >= meta:
+                    break
+
+                # Cambiar el turno
+                turno_inicial = "Computadora" if turno_inicial == "Jugador" else "Jugador"
+
+            # Mostrar el resultado final
+            if puntaje_jugador >= meta:
+                print("\n¡Felicidades! ¡Has ganado!")
+            else:
+                print("\n¡La Computadora ha ganado!")
+
+            while True:
+                respuesta = input("¿Quieres volver a jugar? (si/no): ")
+                if respuesta == "si":
+                    clear_output(wait=True)  # Limpia el tablero
+                    time.sleep(1)  # Espera 1 segundo
+                    print("Ok")
+                    break
+                elif respuesta == "no":
+                    clear_output(wait=True)  # Limpia el tablero
+                    time.sleep(1)  # Espera 1 segundo
+                    print("Ok, gracias por jugar")
+                    bucle_externo = False
+                    break
+                else:
+                    clear_output(wait=True)  # Limpia el tablero
+                    time.sleep(1)  # Espera 1 segundo
+                    print("Respuesta no válida. Por favor, ingresa 'si' o 'no'.")
+
+            time.sleep(1)  # Espera 1 segundo
+            clear_output(wait=True)  # Limpia el tablero
+
+## BlackJack
+
+    #Programacion Juegoo blackjack...
+
+    def jugar_blackjack(): #Cada que se quiera ingresar a esta zona, solo se llama esta funcion y listo
+      bucle_externo = True
+      while bucle_externo:
+        # Función para crear una baraja estándar
+        def crear_baraja():
+            return ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'] * 4
+
+        # Función para calcular el valor total de una mano de cartas
+        def valor_carta(cartas):
+            valor = 0
+            ases = 0
+
+            for carta in cartas:
+                if carta in ['K', 'Q', 'J']:
+                    valor += 10
+                elif carta == 'A':
+                    ases += 1
+                else:
+                    valor += int(carta)
+
+            for _ in range(ases):
+                if valor + 11 <= 21:
+                    valor += 11
+                else:
+                    valor += 1
+
+            return valor
+
+        # Función para mostrar la mano de un jugador o del dealer
+        def mostrar_mano(jugador, cartas, ocultar_segunda_carta=False):
+          if ocultar_segunda_carta and jugador == "Dealer":
+            cartas_mostradas = [cartas[0], 'X']
+            print(f"Mano del {jugador}: {cartas_mostradas[0]} - Carta oculta")
+          else:
+            cartas_mostradas = cartas
+            print(f"{jugador} mano: {' - '.join(cartas_mostradas)} (Valor: {valor_carta(cartas)})")
+
+        # Función principal que implementa el juego de Blackjack
+        def blackjack():
+            # Inicializar la baraja y mezclar las cartas
+            baraja = crear_baraja()
+            random.shuffle(baraja)
+
+            # Repartir cartas al jugador y al dealer
+            jugador_mano = [baraja.pop(), baraja.pop()]
+            dealer_mano = [baraja.pop(), baraja.pop()]
+
+            while True:
+                # Mostrar las manos
+                mostrar_mano("Tu", jugador_mano)
+                mostrar_mano("Dealer", dealer_mano, ocultar_segunda_carta=True)
+
+                # Verificar si el jugador tiene Blackjack
+                if valor_carta(jugador_mano) == 21:
+                    print("¡Blackjack! ¡Ganaste!")
+                    break
+
+                # Verificar si el jugador se pasó de 21
+                if valor_carta(jugador_mano) > 21:
+                    print("Has perdido. Te has pasado de 21.")
+                    break
+
+                # Preguntar al jugador si quiere tomar otra carta
+                decision = input("¿Quieres tomar otra carta? (si/no): ").lower()
+                time.sleep(1)  # Espera 1 segundos
+                clear_output(wait=True)
+
+                # El bucle se activa solo si se ingresa una entrada invalidad
+                while decision not in ['si', 'no']:
+                    print("Entrada no válida. Por favor, ingresa 'si' o 'no'.")
+                    decision = input("¿Quieres tomar otra carta? (si/no): ").lower()
+                    time.sleep(1)  # Espera 1 segundos
+                    clear_output(wait=True)
+
+                # Tomar otra carta si el jugador decide hacerlo
+                if decision == 'si':
+                    jugador_mano.append(baraja.pop())
+                else:
+                    # El dealer toma cartas hasta que su mano tenga un valor de al menos 17
+                    while valor_carta(dealer_mano) < 17:
+                      if valor_carta(dealer_mano) < valor_carta(jugador_mano):
+                        dealer_mano.append(baraja.pop())
+                      else:
+                        break
+
+                    # Mostrar las manos después de que el jugador decide no tomar más cartas
+                    mostrar_mano("Jugador", jugador_mano)
+                    mostrar_mano("Dealer", dealer_mano)
+
+                     # Determinar el resultado del juego
+                    if valor_carta(dealer_mano) > 21:
+                        print("¡Dealer se ha pasado de 21! ¡Ganaste!")
+                    elif valor_carta(jugador_mano) > valor_carta(dealer_mano):
+                        print("¡Ganaste!")
+                    elif valor_carta(jugador_mano) < valor_carta(dealer_mano):
+                        print("Perdiste. Dealer gana.")
+                    else:
+                        print("Empate.")
+
+                    # Terminar el juego después de una ejecución
+                    break
+            # Mensaje de bienvenida y llamada a la función principal del juego
+        print("Bienvenido a Blackjack.")
+        time.sleep(2)  # Espera 2 segundos
+        clear_output(wait=True)
+        blackjack()
+        while True:
+          respuesta = input("Quieres volver a jugar? (si/no)")
+          if respuesta == "si":
+            clear_output(wait=True) #Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            print("ok")
+            break
+
+          elif respuesta == "no":
+            clear_output(wait=True) #Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            print("ok, gracias por jugar")
+            bucle_externo = False
+            break
+
+          else:
+            clear_output(wait=True) #Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+
+            print("Respuesta no válida. Por favor, ingresa 's' o 'n'.")
+
+        time.sleep(1)  # Espera 1 segundos
+        clear_output(wait=True) #Limpia el tablero
+
+## Tragamonedas
+
+     def jugar_tragamonedas():
+      bucle_externo = True
+      while bucle_externo:
+        def tragamonedas():
+            # Símbolos posibles en la tragamonedas
+          simbolos = ['🍒', '🍊', '🍋', '🍇', '🍉', '🍓', '🍈', '🍍', '🔔', '💎']
+
+          # Inicializar los tres rodillos con símbolos aleatorios
+          rodillo1 = random.choice(simbolos)
+          rodillo2 = random.choice(simbolos)
+          rodillo3 = random.choice(simbolos)
+
+            # Mostrar los resultados
+          print(f"\n{' '.join([rodillo1])}\n")
+          time.sleep(1)
+          clear_output(wait=True)
+          print(f"\n{' '.join([rodillo1, rodillo2,])}\n")
+          time.sleep(1)
+          clear_output(wait=True)
+          print(f"\n{' '.join([rodillo1, rodillo2, rodillo3])}\n")
+          time.sleep(1)
+
+            # Verificar si hay coincidencias
+          if rodillo1 == rodillo2 == rodillo3:
+              print("¡Felicidades! Has ganado.")
+          else:
+              print("Lo siento, no hay coincidencias. Inténtalo de nuevo.")
+
+        clear_output(wait=True)
+        print("Bienvenido a tragamonedas.")
+        time.sleep(2)  # Espera 2 segundos
+        clear_output(wait=True)
+        tragamonedas()
+        while True:
+          respuesta = input("Quieres volver a jugar? (si/no)")
+          if respuesta == "si":
+            clear_output(wait=True) #Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            print("ok")
+            break
+
+          elif respuesta == "no":
+        clear_output(wait=True) #Limpia el tablero
+        time.sleep(1)  # Espera 1 segundos
+        print("ok, gracias por jugar")
+        bucle_externo = False
+        time.sleep(3)
+        break
+
+      else:
+        clear_output(wait=True) #Limpia el tablero
+        time.sleep(1)  # Espera 1 segundos
+        print("Respuesta no válida. Por favor, ingresa 'si' o 'no'.")
+
+      time.sleep(1)  # Espera 1 segundos
+      clear_output(wait=True) #Limpia el tablero
+
+## Bingo - (NMD)
+
+    def jugar_bingo():
+        bucle_externo = True
+        while bucle_externo:
+          def bingo ():
+            # Función para generar un cartón de Bingo
+            def generar_carton():
+                carton = []
+                letras = ['N', 'M', 'D']
+                rangos = {'N': (1, 6), 'M': (7, 12), 'D': (13, 18)}
+
+                for letra in letras:
+                    columna = random.sample(range(rangos[letra][0], rangos[letra][1] + 1), 3)
+                    carton.append(columna)
+
+                return carton
+
+            # Función para imprimir el tablero de Bingo
+            def imprimir_tablero(tablero):
+                for fila in tablero:
+                    print(fila)
+
+            # Función para evaluar el tablero después de sortear un número
+            def evaluar_tablero(tablero, numero):
+                for fila in range(len(tablero)):
+                    for columna in range(len(tablero[fila])):
+                        if tablero[fila][columna] == numero:
+                            tablero[fila][columna] = 0
+
+            # Función para verificar si hay un ganador en el tablero de Bingo
+            def verificar_ganador(tablero):
+                for fila in tablero:
+                    if not all(num == 0 for num in fila):
+                        return False
+                return True
+
+            # Generar cartones para el usuario y la computadora
+            carton_usuario = generar_carton()
+            carton_pc = generar_carton()
+
+            # Conjunto para almacenar los números ya sorteados
+            numeros_sorteados = set()
+
+            # Imprimir los cartones iniciales
+            print("Tu cartón:")
+            imprimir_tablero(carton_usuario)
+
+            print("\nCartón de la computadora:")
+            imprimir_tablero(carton_pc)
+
+            print("\nEmpecemos el juego\n")
+
+            while True:
+                # Preguntar al usuario si quiere continuar o abandonar
+                decision = input("Presiona '1' para continuar, '2' para abandonar: ")
+
+                if decision == '2':
+                    confirmacion = input("Estás seguro de que quieres abandonar? Presiona '2' para confirmar, cualquier otra tecla para seguir: ")
+                    if confirmacion == '2':
+                        print("\nHas abandonado el juego. La computadora gana.")
+                        break
+                elif decision != '1':
+                    print("Opción NO válida. Por favor, presiona '1' para continuar o '2' para abandonar.")
+                    continue
+
+                # Generar un número aleatorio que no haya salido
+                while True:
+                    numero_aleatorio = random.randint(1, 18)
+                    if numero_aleatorio not in numeros_sorteados:
+                        break
+
+                # Agregar el número sorteado al conjunto
+                numeros_sorteados.add(numero_aleatorio)
+
+                print(f"Número sorteado: {numero_aleatorio}")
+
+                # Evaluar y marcar el número en ambos cartones
+                evaluar_tablero(carton_usuario, numero_aleatorio)
+                evaluar_tablero(carton_pc, numero_aleatorio)
+
+                # Imprimir los cartones actualizados
+                print("\nTu cartón:")
+                imprimir_tablero(carton_usuario)
+
+                print("\nCartón de la computadora:")
+                imprimir_tablero(carton_pc)
+
+                # Verificar si hay un ganador
+                if verificar_ganador(carton_usuario):
+                    print("\n¡HAS GANADO!")
+                    break
+                elif verificar_ganador(carton_pc):
+                    print("\nPERDISTE :(")
+                    break
+          print("Bienvenido al Bingo.")
+          time.sleep(2)  # Espera 2 segundos
+          clear_output(wait=True)
+          bingo()
+          while True:
+            respuesta = input("¿Quieres volver a jugar? (si/no): ")
+            if respuesta == "si":
+                  clear_output(wait=True)  # Limpia el tablero
+                  time.sleep(1)  # Espera 1 segundo
+                  print("Ok")
+                  break
+            elif respuesta == "no":
+                clear_output(wait=True)  # Limpia el tablero
+                time.sleep(1)  # Espera 1 segundo
+                print("Ok, gracias por jugar")
+                bucle_externo = False
+                break
+            else:
+                clear_output(wait=True)  # Limpia el tablero
+                time.sleep(1)  # Espera 1 segundo
+                print("Respuesta no válida. Por favor, ingresa 'si' o 'no'.")
+
+          time.sleep(1)  # Espera 1 segundo
+          clear_output(wait=True)  # Limpia el tablero
+
+## Ruleta
+
+    def girar_ruleta():
+    return random.randint(1, 10)
+
+    def obtener_premio(numero):
+    premios = {
+        1: "Ganas una tarjeta de regalo, redímela por 100 fichas",
+        2: "Obtienes un descuento del 20% en el bar del casino",
+        3: "Recibes un premio misterioso",
+        4: "Ningún premio, inténtalo de nuevo",
+        5: "Ganas una camiseta gratis, lleva la merch en la tienda del casino",
+        6: "Obtienes un cupón de comida gratis",
+        7: "Ganas un carro de carreras (Renault 4)",
+        8: "Sigue intentando (jaja)",
+        9: "Ganas un viaje a Melgar",
+        10: "Obtienes licencia de un servicio útil para programar en grupo (no es colab)"
+    }
+
+    return premios.get(numero, "Error: número no válido")
+
+    def jugar_ruleta():
+    while True:
+        input("Presiona Enter para girar la ruleta...")
+
+        numero_ganador = girar_ruleta()
+
+        print(f"La ruleta ha girado y el número ganador es: {numero_ganador}")
+
+        premio = obtener_premio(numero_ganador)
+        print(f"¡{premio}!")
+
+        respuesta = input("¿Quieres volver a jugar? (si/no): ").lower()
+        if respuesta != "si":
+            print("¡Gracias por jugar! Hasta luego.")
+            break
+
+## Interfaz Principal
+
+    print("Bienvenido al casino altamente adictivo")
+    clear_output(wait=True)  # Limpia el tablero
+    time.sleep(4)  # Espera 4 segundos
+    print("Escoge el juego que gustes y recuerda que siempre que quieras irte, solo debes seleccionar la opcion 'salir'")
+    clear_output(wait=True)
+    time.sleep(7)
+
+    while True:
+        clear_output(wait=True)
+        print("¿Qué juego deseas jugar? Recuerda que tenemos los siguientes:\n")
+
+        # Organiza las opciones de juego en un diccionario y luego las imprime
+        opciones_juegos = {
+            1: ("Agalludo"),
+            2: ("Blackjack"),
+            3: ("Tragamonedas"),
+            4: ("Bingo"),
+            5: ("Ruleta"),
+            6: ("Salir")
+        }
+
+    for clave, nombre in opciones_juegos.items():
+        print(f"Clave: {clave}, Juego: {nombre}")
+
+    eleccion = input("Para ingresar, escribe la clave del juego que deseas: ")
+
+    try:
+        eleccion = int(eleccion)
+
+        if eleccion == 1:
+            clear_output(wait=True)  # Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            jugar_agalludo()
+
+        elif eleccion == 2:
+            clear_output(wait=True)  # Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            jugar_blackjack()
+
+        elif eleccion == 3:
+            clear_output(wait=True)  # Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            jugar_tragamonedas()
+
+        elif eleccion == 4:
+            clear_output(wait=True)  # Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            jugar_bingo()
+
+        elif eleccion == 5:
+            clear_output(wait=True)  # Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            jugar_ruleta()
+        elif eleccion == 6:
+            print("Gracias por visitarnos, vuelve pronto :)")
+            clear_output(wait=True)  # Limpia el tablero
+            time.sleep(1)  # Espera 1 segundos
+            break
+
+    except ValueError:
+        print("Entrada no válida. Por favor, ingresa un número válido.")
