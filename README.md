@@ -24,7 +24,7 @@ En la tercera selección, se tomó la alternativa sencilla. El 'Tragamonedas'. C
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/3bf860c2-b8e9-4c63-aa3e-d7bbb59c6324)
 
 
-En el cuarto se optó por el niño más amado por los abuelos. El 'BINGO'. A pesar de su fama principalmente en adultos mayores, este juego invita a todas las edades para compartir en familia. Con el objetivo de hacerlo más dinámico, en vez del formato normal con las 5 letras y 75 números, se planteó uno llamado 'NMD'. Por las iniciales de los integrantes, para jugarlo, hay que completar una tabla de 3 x 3, en el que cada letra tiene su propio rango, y los números van hsata el 18. (N): 1-6; (M): 7-12; (D): 13-18. 
+En el cuarto se optó por el niño más amado de los abuelos. El 'BINGO'. A pesar de su fama principalmente en adultos mayores, este juego invita a todas las edades para compartir en familia. Con el objetivo de hacerlo más dinámico, en vez del formato normal con las 5 letras y 75 números, se planteó uno llamado 'NMD'. Por las iniciales de los integrantes, para jugarlo, hay que completar una tabla de 3 x 3, en el que cada letra tiene su propio rango, y los números van hsata el 18. (N): 1-6; (M): 7-12; (D): 13-18. 
 
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/62bdb206-99fd-4d52-b4e8-e2be9bf7f5b7)
 
