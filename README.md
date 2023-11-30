@@ -12,11 +12,28 @@ Esto, además de permitirle a las personas tener una experiencia divertida y rel
 
 ## ¿Cómo lo llevamos a cabo?
 
-Tuvimos varios inconvenientes a la hora de materializar esta increíble idea, pero el primero fue pensar en los 'cómos';
- ¿Cómo vamos a medir la temperatura?, ¿cómo vamos a juntar todo?, ¿cómo vamos a notificar al usuario cuando su bebida esté lista?, ¿cómo vamos a diseñar la PCB?..
+La idea inicial era hacer un juego en roblox studio. Este programa, como su nombre lo indica, es el motor de roblox, una plataforma de videojuegos en línea. Por medio de ella se puede diseñar desde el mapa en 3D, con todo tipo de detalles, hasta el sistema integrado de programación. Todo está basado en el lenguaje 'LUA', cuya sintáxis y facilidad es muy similar a Python.
 
-Con todas estas dudas en la cabeza, fuimos avanzando en el proyecto hasta resolverlas una por una. 
-En primer lugar, decidimos medir la temperatura con una sonda de 3V, debidamente impermeable, para introducirla directamente en el pocillo cómo un pitillo. De otra forma, adaptamos la idea de modificar un pocillo, para diseñar un portavasos con todas las funcionalidadess integradas, que tuviera el hardware escondido en la zona inferior. Así pues, se lograría un producto más versátil, ya que podría adaptarse a diferentes tamaños y formas de pocillos, pero además más útil, porque al público se le haría más cómodo comprar un servicio extra que le sirve a lo que ya tiene, a tener que adquirir algo que nuevo con una funcionalidad de más. Por otra parte, para notificar al usuario, elegimos hacer uso de un pequeño display y un buzzer, periféricos de uso sencillo pero efectivo, que no solo mostrarán en pantalla de forma dinámica si la bebida está lista para consumo, sino que además alertarán al usuario cuando esta llegue a determinada temperatura. Finalmente, lo más difícil del proyecto fue definir cómo se iba a diseñar la PCB, para eso tuvimos que documentarnos profundamente acerca de la manufactura de esta tecnología, y realizar un boceto general del cómo se iba a conectar cada periférico a la ESP-32 de forma efectiva, y pequeña, puesto que las dimensiones de un pocillo estándar no son algo exageradas.
+En ese orden de ideas, en primer lugar, se diseñó un mapa con diferentes zonas para interactuar. Ahora bien, surgió un gran problema, puesto que para desarrollar un juego de este estilo, es necesario tener conocimientos sobre interfaces de usuario, interconectividad entre jugadores, datos guardados en la nube, comunicación con servidores físicos, y muchos más. Por lo cual, en vista de los conocimientos básicos, y naturalmente limitantes del equipo de trabajo, se optó por buscar otra alternativa más acorde a las posibilidades.
+
+Fue allí cuando apareció la idea de realizar todo el sistema por medio de un cuaderno sencillo en google collaboratory. Esto facilitaría las diferentes interfaces, lo haría muy fácil de ubicar, pero, sobre todo, mantendría la esencia del proyecto de diversión y tranquilidad.
+
+A continuación se adjuntará unas imagenes con el mapa diseñado inciailmente;
+
+![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/2e5cdb7a-e94a-4ff7-ab8b-67f04f39b0e4)
+
+![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/42d1ef0c-6d1e-4b4d-88d8-e1c2aa3a5eb3)
+
+![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/0626d5a5-92e1-49cb-bc3b-b32863184cf1)
+
+![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/f48466d5-3989-4555-910c-b386cd85c3d5)
+
+![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/a4f35922-5e89-4e2a-9a9e-1f9e8e01083b)
+
+
+
+
+
 
 
 
