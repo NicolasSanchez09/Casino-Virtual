@@ -4,7 +4,7 @@
 
 Proporcionar un entorno virtual dónde las personas puedan disfrutar de la emoción de un casino desde la comodidad de sus hogares.
 
-Esto, además de permitirle a las personas tener una experiencia divertida y relajante, establece un ambiente ideal para que el equipo de trabajo pueda experimentar las diferentes funcionalidades y herramientas de un lenguaje de programación tan amplio como lo es Python. 
+Esto, además de permitirle a las personas tener una experiencia divertida y relajante, estableció un ambiente ideal para que el equipo de trabajo pudiera explorar las diferentes funcionalidades y herramientas de un lenguaje de programación tan amplio como lo es Python. 
 
 ![image](https://github.com/NicolasSanchez09/Casino-Virtual/assets/145717659/6fab8ecf-299d-453a-89c3-74a1793ed000)
 
